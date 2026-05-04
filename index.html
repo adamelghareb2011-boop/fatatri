@@ -5,24 +5,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fatatri - Home</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; text-align: center; background-image: url('bg_pattern.jpg'); background-size: cover; background-attachment: fixed; }
-        nav { display: flex; gap: 20px; padding: 20px; background: rgba(255,255,255,0.9); justify-content: center; border-bottom: 2px solid #ddd; }
+        body { 
+            font-family: sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            text-align: center; 
+            background-image: url('bg_pattern.jpg'); 
+            background-size: cover; 
+            background-attachment: fixed;
+            background-position: center;
+        }
+        nav { 
+            display: flex; 
+            gap: 20px; 
+            padding: 20px; 
+            background: rgba(255, 255, 255, 0.95); 
+            justify-content: center; 
+            border-bottom: 2px solid #ddd; 
+        }
         nav a { text-decoration: none; color: #333; font-weight: bold; }
-        .content { background: rgba(255,255,255,0.9); padding: 50px; margin: 50px auto; max-width: 600px; border-radius: 20px; }
-        .logo { width: 150px; }
+        
+        .content { 
+            background: rgba(255, 255, 255, 0.9); 
+            padding: 40px; 
+            margin: 50px auto; 
+            max-width: 600px; 
+            border-radius: 20px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .logo { width: 150px; margin-bottom: 20px; }
+        
+        .quote { font-style: italic; color: #555; margin: 20px 0; font-size: 1.2rem; }
+        .contact-info { margin-top: 30px; border-top: 1px solid #ddd; padding-top: 20px; }
     </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
         <a href="order.html">Order</a>
         <a href="reservations.html">Reservations</a>
     </nav>
+
     <div class="content">
         <img src="logo.png" class="logo">
         <h1>Welcome to Fatatri</h1>
-        <p>Authentic flavors, crafted with love.</p>
+        
+        <p class="quote">
+            "Every bite tells a story of tradition; from our kitchen to your table, experience the true soul of authentic Egyptian flavors."
+        </p>
+
+        <div class="contact-info">
+            <h3>Contact & Location</h3>
+            <p>📍 Al Amir st, Doha, Qatar</p>
+            <p>📞 Phone: +974 5058 4446</p>
+           
+        </div>
     </div>
+
 </body>
 </html>
