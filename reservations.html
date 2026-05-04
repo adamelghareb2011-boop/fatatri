@@ -1,8 +1,33 @@
-<form id="reservation-form">
-    <input type="text" name="user_name" placeholder="Your Name" required>
-    <input type="text" name="user_phone" placeholder="Phone Number" required>
-    <input type="date" name="date" required>
-    <input type="number" name="guests" placeholder="Number of Guests" required>
-    <textarea name="message" placeholder="Special Requests"></textarea>
-    <button type="submit">Submit Reservation</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fatatri - Reservations</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript"> (function(){ emailjs.init("YOUR_PUBLIC_KEY"); })(); </script>
+    <style>
+        body { font-family: sans-serif; text-align: center; background-image: url('bg_pattern.jpg'); background-size: cover; background-attachment: fixed; }
+        nav { display: flex; gap: 20px; padding: 20px; background: rgba(255,255,255,0.9); justify-content: center; }
+        .form-box { background: rgba(255,255,255,0.9); padding: 30px; margin: 50px auto; max-width: 400px; border-radius: 20px; }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order</a>
+        <a href="reservations.html">Reservations</a>
+    </nav>
+    <div class="form-box">
+        <h1>Book a Table</h1>
+        <form id="reservation-form">
+            <input type="text" name="user_name" placeholder="Name" required>
+            <input type="text" name="user_phone" placeholder="Phone" required>
+            <input type="date" name="date" required>
+            <textarea name="message" placeholder="Special Requests"></textarea>
+            <button type="submit" style="width:100%; padding:10px; background:#5d4037; color:white; border:none;">Reserve</button>
+        </form>
+    </div>
+</body>
+</html>
