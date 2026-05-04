@@ -3,152 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fatatri | Authentic Experience</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() { emailjs.init("XUwvmjA_7bZZHo_gd"); })();
-    </script>
+    <title>Fatatri - Home</title>
     <style>
-        :root {
-            --primary: #5D4037;
-            --accent: #FFC107;
-            --bg: #fffaf0;
-            --text: #333;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Poppins', sans-serif;
-            color: var(--text);
-            position: relative;
-        }
-
-        /* Blurred Background ohLayer */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('logo.png');
-            background-repeat: repeat;
-            background-size: 150px;
-            filter: blur(10px);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 850px;
-            margin: 0 auto;
-            padding: 40px 20px;
-            background-color: rgba(255, 255, 255, 0.95);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        /* Fancy Navbar */
-        .navbar {
-            background: rgba(93, 64, 55, 0.95);
-            backdrop-filter: blur(10px);
-            position: sticky;
-            top: 0;
-            padding: 10px 20px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            z-index: 1000;
-        }
-        .navbar a, .dropbtn { color: white; text-decoration: none; font-weight: 600; padding: 10px; cursor: pointer; border: none; background: none; }
-        
-        /* Menu Cards */
-        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; margin-top: 30px; }
-        .menu-card { background: #fff; padding: 15px; border-radius: 20px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); transition: 0.3s; text-align: center; border: 1px solid #eee; }
-        .menu-card:hover { transform: translateY(-10px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
-        .menu-card img { width: 100%; height: 180px; object-fit: cover; border-radius: 15px; }
-        .price { font-weight: bold; color: var(--accent); font-size: 1.3em; margin: 10px 0; }
-
-        /* Buttons */
-        .order-btn { display: block; width: 100%; padding: 15px; margin: 10px 0; border-radius: 12px; font-weight: 600; text-decoration: none; text-align: center; transition: 0.3s; }
-        .order-btn:hover { opacity: 0.9; transform: scale(1.02); }
-        .talabat { background: #E61250; color: white; }
-        .keeta { background: #000; color: white; }
-        .snoonu { background: #33d17a; color: white; }
-        
-        /* Form */
-        form { background: #f9f9f9; padding: 30px; border-radius: 20px; margin-top: 40px; }
-        input, textarea { width: 100%; padding: 15px; margin: 10px 0; border: 2px solid #ddd; border-radius: 12px; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        input:focus { border-color: var(--accent); outline: none; }
-        button.submit-btn { width: 100%; background: var(--primary); color: white; border: none; padding: 18px; font-size: 18px; font-weight: bold; border-radius: 12px; cursor: pointer; transition: 0.3s; }
-        button.submit-btn:hover { background: #4a342d; }
+        body { font-family: sans-serif; margin: 0; padding: 0; text-align: center; background-color: #f9f9f9; }
+        nav { display: flex; gap: 20px; padding: 20px; background: #fff; justify-content: center; border-bottom: 2px solid #ddd; }
+        nav a { text-decoration: none; color: #333; font-weight: bold; }
+        .hero { padding: 50px; background: #fff; }
+        .logo { width: 150px; }
     </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <a href="#menu">Menu</a>
-    <a href="#reservations">Reservations</a>
-    <a href="#order">Order Online</a>
-</nav>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="order.html">Order Online</a>
+        <a href="reservations.html">Reservations</a>
+    </nav>
 
-<div class="container">
-    <header style="text-align: center;">
-        <img src="logo.png" alt="Fatatri Logo" style="width: 150px; border-radius: 50%;">
-        <h1>Welcome to Fatatri</h1>
-        <p>Authentic flavors, crafted with love.</p>
-    </header>
-
-    <h2 id="menu" style="text-align: center;">Our Signature Menu</h2>
-    <div class="menu-grid">
-        <div class="menu-card">
-            <img src="item1.jpg" alt="Cheese Fatayer">
-            <h3>Cheese Fatayer</h3>
-            <p class="price">15 QAR</p>
-        </div>
-        <div class="menu-card">
-            <img src="item2.jpg" alt="Meat Fatayer">
-            <h3>Meat Fatayer</h3>
-            <p class="price">18 QAR</p>
-        </div>
-        <div class="menu-card">
-            <img src="item3.jpg" alt="Spinach Fatayer">
-            <h3>Spinach Fatayer</h3>
-            <p class="price">12 QAR</p>
-        </div>
+    <div class="hero">
+        <img src="logo.png" alt="Fatatri Logo" class="logo"> <h1>Welcome to Fatatri</h1>
+        <p>Authentic flavors, delivered to your door.</p>
+        <a href="menu.html"><button style="padding: 10px 20px;">View Our Menu</button></a>
     </div>
 
-    <div id="order" style="margin-top: 50px;">
-        <h2 style="text-align: center;">Order Online</h2>
-        <a href="https://www.talabat.com/qatar/fatatri-restaurant" class="order-btn talabat">Order on Talabat</a>
-        <a href="https://url-eu.mykeeta.com/UCBs1EBz" class="order-btn keeta">Order on Keeta</a>
-        <a href="https://snoonu.com/restaurants/fatatri" class="order-btn snoonu">Order from Snoonu</a>
-    </div>
-
-    <form id="contact-form">
-        <h2 id="reservations" style="text-align: center; margin-top: 0;">Book a Table</h2>
-        <input type="text" name="user_name" placeholder="Full Name" required>
-        <input type="tel" name="user_phone" placeholder="Phone Number" required>
-        <input type="date" name="date" required>
-        <input type="number" name="guests" placeholder="Number of Guests" required>
-        <textarea name="message" placeholder="Special Requests" rows="3"></textarea>
-        <button type="submit" class="submit-btn">Reserve Now</button>
-    </form>
-
-    <footer style="text-align: center; margin-top: 40px; color: #888;">
-        <p>Al Amir St, Doha, Qatar | 50584446</p>
-    </footer>
-</div>
-
-<script>
-    const form = document.getElementById('contact-form');
-    form.addEventListener('submit', function(event) {
-        event.preventDefault();
-        emailjs.sendForm('service_ad2wglg', 'template_cnhsdur', this)
-            .then(() => { alert('Success! Request sent.'); form.reset(); }, 
-                  (error) => { alert('Error. Try WhatsApp.'); console.log(error); });
-    });
-</script>
 </body>
 </html>
