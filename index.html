@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fatatri | Menu & Reservations</title>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() { emailjs.init("XUwvmjA_7bZZHo_gd"); })();
+    </script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background-color: #fffaf0; color: #5D4037; margin: 0; padding: 0; line-height: 1.6; }
+        .container { max-width: 800px; margin: 0 auto; padding: 20px; }
+        header { text-align: center; padding: 40px 0; }
+        header img { max-width: 200px; border-radius: 10px; }
+        
+        /* Menu Grid */
+        .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 30px; }
+        .menu-card { background: white; padding: 15px; border-radius: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
+        .menu-card img { width: 100%; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px; background: #eee; }
+        .price { font-weight: bold; color: #FF9800; font-size: 1.2em; }
+
+        /* Buttons */
+        .order-btn { display: block; width: 100%; padding: 12px; margin: 10px 0; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; text-decoration: none; text-align: center; }
+        .talabat { background: #E61250; color: white; }
+        .keeta { background: #000; color: white; }
+        .snoonu { background: #33d17a; color: white; }
+        
+        /* Form */
+        form { background: white; padding: 25px; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); margin-top: 40px; }
+        input, textarea { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        button.submit-btn { width: 100%; background-color: #FFC107; border: none; padding: 15px; font-size: 16px; font-weight: bold; border-radius: 8px; cursor: pointer; }
+
+        footer { text-align: center; padding: 40px; border-top: 2px solid #ddd; margin-top: 40px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <img src="logo.png" alt="Fatatri Logo">
+        <h1>Our Menu</h1>
+    </header>
+
+    <div class="menu-grid">
+        <div class="menu-card">
+            <img src="item1.jpg" alt="Item">
+            <h3>Cheese Fatayer</h3>
+            <p class="price">15 QAR</p>
+        </div>
+        <div class="menu-card">
+            <img src="item2.jpg" alt="Item">
+            <h3>Meat Fatayer</h3>
+            <p class="price">18 QAR</p>
+        </div>
+        <div class="menu-card">
+            <img src="item3.jpg" alt="Item">
+            <h3>Spinach Fatayer</h3>
+            <p class="price">12 QAR</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <h2 style="text-align: center;">Order Online</h2>
+        <a href="https://www.talabat.com/qatar/fatatri-restaurant" class="order-btn talabat">Order on Talabat</a>
+        <a href="https://url-eu.mykeeta.com/UCBs1EBz" class="order-btn keeta">Order on Keeta</a>
+        <a href="https://snoonu.com/restaurants/fatatri" class="order-btn snoonu">Order from Snoonu</a>
+    </div>
+
+    <form id="contact-form">
+        <h2 style="text-align: center;">Reserve a Table</h2>
+        <input type="text" name="user_name" placeholder="Your Name" required>
+        <input type="tel" name="user_phone" placeholder="Phone Number" required>
+        <input type="date" name="date" required>
+        <input type="number" name="guests" placeholder="Number of Guests" required>
+        <textarea name="message" placeholder="Special Requests"></textarea>
+        <button type="submit" class="submit-btn">Confirm Reservation</button>
+    </form>
+
+    <footer>
+        <p>Al Amir St, Doha, Qatar</p>
+        <p>Phone: 50584446</p>
+    </footer>
+</div>
+
+<script>
+    const form = document.getElementById('contact-form');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        emailjs.sendForm('service_ad2wglg', 'template_cnhsdur', this)
+            .then(() => { alert('Success! Request sent.'); form.reset(); }, 
+                  (error) => { alert('Error. Try WhatsApp.'); console.log(error); });
+    });
+</script>
+</body>
+</html>
