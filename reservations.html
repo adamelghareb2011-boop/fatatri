@@ -4,54 +4,112 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fatatri - Reservations</title>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function(){
-            emailjs.init("XUwvmjA_7bZZHo_gd"); 
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        (function () {
+            emailjs.init("XUwvmjA_7bZZHo_gd");
         })();
     </script>
-  <style>
-    /* 1. Viewport/Body Fixes */
-    body { 
-        font-family: 'Segoe UI', sans-serif; 
-        margin: 0; padding: 0; 
-        background-image: url('bg_pattern.jpg'); 
-        background-repeat: repeat; 
-        /* Change 300px to 400px or 500px to make the pattern image bigger */
-        background-size: 300px; 
-        background-attachment: fixed;
-    }
 
-    /* 2. Mobile Friendly Navigation */
-    nav { 
-        display: flex; flex-wrap: wrap; gap: 15px; 
-        padding: 15px; background: rgba(255, 255, 255, 0.9); 
-        backdrop-filter: blur(10px); justify-content: center; 
-        border-bottom: 1px solid #ddd;
-    }
-    nav a { text-decoration: none; color: #333; font-weight: 600; font-size: 16px; }
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('bg_pattern.jpg');
+            background-repeat: repeat;
+            background-size: 300px;
+            background-attachment: fixed;
+        }
 
-    /* 3. The "Glass" Container that fits mobile */
-    .glass-card, .content { 
-        background: rgba(255, 255, 255, 0.95); 
-        padding: 30px; 
-        margin: 20px auto; 
-        width: 90%;          /* Uses 90% of the phone screen width */
-        max-width: 500px;    /* Keeps it from getting too wide on desktop */
-        border-radius: 20px; 
-        box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-        box-sizing: border-box; /* Crucial to prevent padding overflow */
-    }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            justify-content: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-    /* 4. Responsive Images */
-    .showcase-img, .inside-photo { 
-        width: 100%; 
-        border-radius: 15px; 
-        margin: 15px 0; 
-    }
-</style>
+        nav a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            margin: 20px auto;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+        }
+
+        .inside-photo {
+            width: 100%;
+            border-radius: 15px;
+            margin: 0 0 15px 0;
+            display: block;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #222;
+        }
+
+        .input-field {
+            width: 100%;
+            padding: 12px 14px;
+            margin-bottom: 14px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        textarea.input-field {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #222;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            opacity: 0.92;
+        }
+
+        .address-box {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #ddd;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .address-box p {
+            margin: 6px 0;
+        }
+    </style>
 </head>
 <body>
+
     <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
@@ -61,17 +119,24 @@
 
     <div class="glass-card">
         <img src="inside.png" alt="Our Restaurant" class="inside-photo">
+
         <h1>Book a Table</h1>
+
         <form id="reservation-form">
             <input type="text" name="user_name" placeholder="Name" required class="input-field">
             <input type="text" name="user_phone" placeholder="Phone" required class="input-field">
             <input type="date" name="date" required class="input-field">
             <input type="number" name="guests" placeholder="Number of Guests" required class="input-field">
 
-            <textarea name="message" placeholder="Time and Special Requests (e.g., 6PM, high chair, allergies...)" class="input-field"></textarea>
-            
+            <textarea
+                name="message"
+                placeholder="Time and Special Requests (e.g., 6PM, high chair, allergies...)"
+                class="input-field"
+            ></textarea>
+
             <button type="submit" class="submit-btn" id="button">Confirm Reservation</button>
         </form>
+
         <div class="address-box">
             <p><strong>📍 Visit Us:</strong> Al Amir St, Doha, Qatar</p>
             <p>📞 50584446</p>
@@ -80,19 +145,22 @@
 
     <script>
         const btn = document.getElementById('button');
+
         document.getElementById('reservation-form').addEventListener('submit', function(event) {
             event.preventDefault();
-            btn.value = 'Sending...';
+
+            btn.textContent = 'Sending...';
 
             emailjs.sendForm('service_ad2wglg', 'template_cnhsdur', this)
                 .then(function() {
-                    btn.value = 'Confirm Reservation';
+                    btn.textContent = 'Confirm Reservation';
                     alert('Reservation Sent Successfully!');
                 }, function(error) {
-                    btn.value = 'Confirm Reservation';
+                    btn.textContent = 'Confirm Reservation';
                     alert('Failed to send. Please try again.');
                 });
         });
     </script>
+
 </body>
 </html>
