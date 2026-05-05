@@ -2,32 +2,41 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Fatatri - Home</title>
     <style>
-        body { font-family: sans-serif; margin: 0; padding: 0; text-align: center; background-image: url('bg_pattern.jpg'); background-repeat: repeat; background-size: auto; background-attachment: fixed; }
-        nav { display: flex; gap: 20px; padding: 20px; background: rgba(255, 255, 255, 0.95); justify-content: center; border-bottom: 2px solid #ddd; }
-        nav a { text-decoration: none; color: #333; font-weight: bold; }
-        .content { background: rgba(255, 255, 255, 0.95); padding: 40px; margin: 50px auto; max-width: 600px; border-radius: 20px; }
-        .logo { width: 150px; }
-        .quote { font-style: italic; color: #555; margin: 20px 0; font-size: 1.1rem; }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; text-align: center; background-image: url('bg_pattern.jpg'); background-repeat: repeat; background-attachment: fixed; }
+        nav { display: flex; flex-wrap: wrap; gap: 20px; padding: 20px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); justify-content: center; border-bottom: 1px solid #ddd; }
+        nav a { text-decoration: none; color: #333; font-weight: 600; }
+        .content { background: rgba(255, 255, 255, 0.95); padding: 40px; margin: 40px auto; max-width: 650px; border-radius: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+        .logo { width: 140px; margin-bottom: 10px; }
+        .showcase-img { width: 100%; max-width: 500px; border-radius: 15px; margin: 15px 0; }
+        .quote { font-style: italic; color: #555; margin: 20px 0; font-size: 1.1rem; line-height: 1.6; }
+        .contact-info { margin-top: 30px; border-top: 1px solid #eee; padding-top: 20px; }
+        
+        @media (max-width: 600px) {
+            nav { gap: 10px; padding: 15px; font-size: 14px; }
+            .content { width: 90%; margin: 20px auto; padding: 25px; }
+        }
     </style>
 </head>
 <body>
     <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
-        <a href="order.html">Order</a>
+        <a href="order.html">Order Online</a>
         <a href="reservations.html">Reservations</a>
     </nav>
     <div class="content">
-        <img src="logo.png" class="logo">
+        <img src="logo.png" class="logo" alt="Fatatri Logo">
         <h1>Welcome to Fatatri</h1>
+        <img src="food.png" class="showcase-img" alt="Our Delicious Food">
         <p class="quote">"Every bite tells a story of tradition; from our kitchen to your table, experience the true soul of authentic Egyptian flavors."</p>
-        <div style="border-top: 1px solid #ddd; padding-top: 20px;">
+        <img src="look.png" class="showcase-img" alt="Fatatri Store">
+        <div class="contact-info">
             <h3>Contact & Location</h3>
-            <p>📍 Al Amir st, Doha, Qatar</p>
-            <p>📞 Phone: +974 5058 4446</p>
-          
+            <p>📍 Al Amir St, Doha, Qatar</p>
+            <p>📞 Phone: 50584446</p>
         </div>
     </div>
 </body>
