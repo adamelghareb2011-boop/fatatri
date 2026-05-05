@@ -7,51 +7,25 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function(){
-            // Your Public Key
-            emailjs.init("XUwvmjA_7bZZHo_gd");
+            emailjs.init("XUwvmjA_7bZZHo_gd"); 
         })();
     </script>
-    
     <style>
-        body { 
-            font-family: 'Segoe UI', sans-serif; 
-            margin: 0; padding: 0; 
-            background-image: url('bg_pattern.jpg'); 
-            background-repeat: repeat; 
-            background-attachment: fixed;
-        }
-        nav { 
-            display: flex; gap: 20px; padding: 20px; 
-            background: rgba(255, 255, 255, 0.85); 
-            backdrop-filter: blur(10px); 
-            justify-content: center; 
-            border-bottom: 1px solid rgba(255,255,255,0.3);
-        }
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; background-image: url('bg_pattern.jpg'); background-repeat: repeat; background-attachment: fixed; }
+        nav { display: flex; gap: 20px; padding: 20px; background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px); justify-content: center; border-bottom: 1px solid #ddd; }
         nav a { text-decoration: none; color: #333; font-weight: 600; }
-        
-        .glass-card { 
-            background: rgba(255, 255, 255, 0.9); 
-            backdrop-filter: blur(15px); 
-            padding: 30px; margin: 50px auto; 
-            max-width: 400px; border-radius: 25px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        .glass-card { background: rgba(255, 255, 255, 0.95); padding: 30px; margin: 30px auto; max-width: 450px; border-radius: 20px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); text-align: center; }
+        .inside-photo { width: 100%; border-radius: 15px; margin-bottom: 20px; object-fit: cover; }
+        .input-field { width: 100%; padding: 12px; margin: 10px 0; border: 1px solid #ccc; border-radius: 8px; box-sizing: border-box; }
+        .submit-btn { width: 100%; padding: 15px; background: #d35400; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .address-box { margin-top: 20px; font-size: 0.9rem; color: #444; border-top: 1px solid #eee; padding-top: 15px; }
+        @media (max-width: 600px) {
+            nav { flex-direction: column; align-items: center; gap: 10px; }
+            .glass-card { margin: 15px; padding: 20px; }
         }
-        .input-field {
-            width: 100%; padding: 12px; margin: 10px 0; 
-            border: 1px solid rgba(0,0,0,0.1); border-radius: 10px;
-            background: rgba(255,255,255,0.5); box-sizing: border-box;
-        }
-        .submit-btn {
-            width: 100%; padding: 15px; background: #d35400; 
-            color: white; border: none; border-radius: 10px; 
-            cursor: pointer; font-weight: bold; margin-top: 10px;
-            transition: 0.3s;
-        }
-        .submit-btn:hover { background: #e67e22; }
     </style>
 </head>
 <body>
-
     <nav>
         <a href="index.html">Home</a>
         <a href="menu.html">Menu</a>
@@ -60,29 +34,33 @@
     </nav>
 
     <div class="glass-card">
+        <img src="inside.png" alt="Our Restaurant" class="inside-photo">
         <h1>Book a Table</h1>
         <form id="reservation-form">
-            <input type="text" name="user_name" placeholder="Full Name" required class="input-field">
-            <input type="text" name="user_phone" placeholder="Phone Number" required class="input-field">
+            <input type="text" name="user_name" placeholder="Name" required class="input-field">
+            <input type="text" name="user_phone" placeholder="Phone" required class="input-field">
             <input type="date" name="date" required class="input-field">
-            <input type="number" name="guests" placeholder="Number of Guests" required class="input-field">
-            <textarea name="message" placeholder="Special Requests" class="input-field"></textarea>
-            <button type="submit" class="submit-btn">Confirm Reservation</button>
+            <button type="submit" class="submit-btn" id="button">Confirm Reservation</button>
         </form>
+        <div class="address-box">
+            <p><strong>📍 Visit Us:</strong> Al Amir St, Doha, Qatar</p>
+            <p>📞 50584446</p>
+        </div>
     </div>
 
     <script>
-        const form = document.getElementById('reservation-form');
-        form.addEventListener('submit', function(event) {
+        const btn = document.getElementById('button');
+        document.getElementById('reservation-form').addEventListener('submit', function(event) {
             event.preventDefault();
+            btn.value = 'Sending...';
 
-            // Using your Service ID and Template ID
             emailjs.sendForm('service_ad2wglg', 'template_cnhsdur', this)
                 .then(function() {
-                    alert('Reservation sent successfully!');
-                    form.reset();
+                    btn.value = 'Confirm Reservation';
+                    alert('Reservation Sent Successfully!');
                 }, function(error) {
-                    alert('Failed to send: ' + JSON.stringify(error));
+                    btn.value = 'Confirm Reservation';
+                    alert('Failed to send. Please try again.');
                 });
         });
     </script>
